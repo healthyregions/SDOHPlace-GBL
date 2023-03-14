@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV["lando_sdohplace_database_conn_host"] || ENV["DB_HOST"] || "localhost" %>
+  port: <%= ENV["lando_sdohplace_database_conn_port"] || 5432 %>
+  username: <%= ENV["lando_sdohplace_database_creds_user"] || ENV["DB_USERNAME"] %>
+  password: <%= ENV["lando_sdohplace_database_creds_password"] || ENV["DB_PASSWORD"] %>
+  database: <%= ENV['DB'] %>
+  pool: 5
+
+development:
+  <<: *default
+  database: sdohplace_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: sdohplace_test
+
+production:
+  <<: *default
+
+staging:
+  <<: *default
