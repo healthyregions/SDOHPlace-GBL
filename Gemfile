@@ -71,7 +71,7 @@ group :test do
   gem "webdrivers"
 end
 gem "blacklight", "~> 7.0"
-gem "geoblacklight", "~> 4.0"
+gem "geoblacklight", "~> 4.1"
 gem "sprockets", "< 4.0"
 
 group :development, :test do
