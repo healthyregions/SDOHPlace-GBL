@@ -86,6 +86,10 @@ FIELDS:
   :VERSION: 'dct_isVersionOf_sm'
   :WXS_IDENTIFIER: 'gbl_wxsIdentifier_s'
   :DISPLAY_NOTE: 'gbl_displayNote_sm'
+  :SPATIAL_RESOLUTION: 'sdoh_spatial_resolution_sm'
+  :SPATIAL_RESOLUTION_NOTE: 'sdoh_spatial_resolution_note_s'
+  :METHODS_VARIABLES: 'sdoh_methods_variables_sm'
+  :DATA_VARIABLES: 'sdoh_data_variables_sm'
 
 DISPLAY_NOTES_SHOWN:
   danger:

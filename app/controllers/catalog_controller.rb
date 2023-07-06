@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
     # to add additional facets, use the keys defined in the settings.yml file
     config.add_facet_field Settings.FIELDS.INDEX_YEAR, :label => 'Year', :limit => 10
     config.add_facet_field Settings.FIELDS.SPATIAL_COVERAGE, :label => 'Place', :limit => 8
-    config.add_facet_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access', limit: 8, item_component: Geoblacklight::IconFacetItemComponent
+#    config.add_facet_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access', limit: 8, item_component: Geoblacklight::IconFacetItemComponent
     config.add_facet_field Settings.FIELDS.RESOURCE_CLASS, label: 'Resource Class', :limit => 8
     config.add_facet_field Settings.FIELDS.RESOURCE_TYPE, label: 'Resource Type', :limit => 8
     config.add_facet_field Settings.FIELDS.FORMAT, :label => 'Format', :limit => 8
@@ -108,8 +108,13 @@ class CatalogController < ApplicationController
     config.add_facet_field Settings.FIELDS.THEME, :label => 'Theme', :limit => 8
     config.add_facet_field Settings.FIELDS.CREATOR, :label => 'Creator', :limit => 8
     config.add_facet_field Settings.FIELDS.PUBLISHER, :label => 'Publisher', :limit => 8
+    # would like to disable PROVIDER, but it breaks the home page at the moment, it
+    # is needed for the Institutions section
     config.add_facet_field Settings.FIELDS.PROVIDER, label: 'Provider', limit: 8, item_component: Geoblacklight::IconFacetItemComponent
-    config.add_facet_field Settings.FIELDS.GEOREFERENCED, :label => 'Georeferenced', :limit => 3
+#    config.add_facet_field Settings.FIELDS.GEOREFERENCED, :label => 'Georeferenced', :limit => 3
+
+    # NEW SDOH PLACE FACETS
+    config.add_facet_field Settings.FIELDS.SPATIAL_RESOLUTION, :label => 'Spatial Resolution', :limit => 5
 
     # GEOBLACKLIGHT APPLICATION FACETS
 
@@ -182,7 +187,7 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.ACCESS_RIGHTS, label: 'Access Rights', itemprop: 'access_rights'
     config.add_show_field Settings.FIELDS.FORMAT, label: 'Format', itemprop: 'format'
     config.add_show_field Settings.FIELDS.FILE_SIZE, label: 'File Size', itemprop: 'file_size'
-    config.add_show_field Settings.FIELDS.GEOREFERENCED, label: 'Georeferenced', itemprop: 'georeferenced'
+    config.add_show_field Settings.FIELDS.GEOREFERENCED, label: 'Georeferenced', itemprop: ''
     config.add_show_field "best_viewed_on_s", label: 'View on', itemprop: 'view_on'
     
     config.add_show_field(
@@ -335,7 +340,7 @@ class CatalogController < ApplicationController
     # 'openstreetmapHot'
     # 'openstreetmapStandard'
 
-    config.basemap_provider = 'positron'
+    config.basemap_provider = 'midnightCommander'
 
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
