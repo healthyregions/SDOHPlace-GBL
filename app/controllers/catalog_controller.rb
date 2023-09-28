@@ -115,6 +115,8 @@ class CatalogController < ApplicationController
 
     # NEW SDOH PLACE FACETS
     config.add_facet_field Settings.FIELDS.SPATIAL_RESOLUTION, :label => 'Spatial Resolution', :limit => 5
+    config.add_facet_field Settings.FIELDS.METHODS_VARIABLES, :label => 'Methods Variables', :limit => 5
+    config.add_facet_field Settings.FIELDS.DATA_VARIABLES, :label => 'Data Variables', :limit => 5
 
     # GEOBLACKLIGHT APPLICATION FACETS
 
@@ -153,9 +155,10 @@ class CatalogController < ApplicationController
     # # config.add_index_field 'Area', :label => 'Area:'
     # config.add_index_field Settings.FIELDS.SUBJECT, :label => 'Keywords:'
     config.add_index_field Settings.FIELDS.INDEX_YEAR
-    config.add_index_field Settings.FIELDS.CREATOR
+    config.add_index_field Settings.FIELDS.SPATIAL_RESOLUTION
+#    config.add_index_field Settings.FIELDS.CREATOR
     config.add_index_field Settings.FIELDS.DESCRIPTION, helper_method: :snippit
-    config.add_index_field Settings.FIELDS.PUBLISHER
+#    config.add_index_field Settings.FIELDS.PUBLISHER
 
     # ITEM VIEW FIELDS
 
@@ -190,6 +193,10 @@ class CatalogController < ApplicationController
     config.add_show_field Settings.FIELDS.GEOREFERENCED, label: 'Georeferenced', itemprop: ''
     config.add_show_field "best_viewed_on_s", label: 'View on', itemprop: 'view_on'
     
+    config.add_show_field Settings.FIELDS.DATA_USAGE_NOTES, label: 'Data Usage Notes', itemprop: 'data_usage_notes'
+    config.add_show_field Settings.FIELDS.METHODS_VARIABLES, label: 'Methods Variables', itemprop: 'methods_variables'
+    config.add_show_field Settings.FIELDS.DATA_VARIABLES, label: 'Data Variables', itemprop: 'data_variables'
+
     config.add_show_field(
       Settings.FIELDS.REFERENCES,
       label: 'More details at',

@@ -90,6 +90,7 @@ FIELDS:
   :SPATIAL_RESOLUTION_NOTE: 'sdoh_spatial_resolution_note_s'
   :METHODS_VARIABLES: 'sdoh_methods_variables_sm'
   :DATA_VARIABLES: 'sdoh_data_variables_sm'
+  :DATA_USAGE_NOTES: 'sdoh_data_usage_notes_s'
 
 DISPLAY_NOTES_SHOWN:
   danger:
