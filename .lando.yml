@@ -1,28 +1,31 @@
 name: sdohplace
 services:
-  sdohplace_test_solr:
-    type: solr:custom
-    overrides:
-      image: pulibrary/ci-solr:8.4-v1.0.0
-      command: server/scripts/lando-start.sh
-    portforward: true
-    core: sdohplace-core-test
-    config:
-      dir: "solr/conf"
-  sdohplace_development_solr:
-    type: solr:custom
-    overrides:
-      image: pulibrary/ci-solr:8.4-v1.0.0
-      command: server/scripts/lando-start.sh
-    portforward: true
-    core: sdohplace-core-dev
-    config:
-      dir: "solr/conf"
-  sdohplace_database:
-    type: postgres:13
-    portforward: true
-proxy:
-  sdohplace_test_solr:
-    - sdohplace.test.solr.lndo.site:8983
-  sdohplace_development_solr:
-    - sdohplace.dev.solr.lndo.site:8983
+## SOLR - uncomment these sections for lando to start solr test/dev instances
+#  sdohplace_test_solr:
+#    type: solr:custom
+#    overrides:
+#      image: pulibrary/ci-solr:8.4-v1.0.0
+#      command: server/scripts/lando-start.sh
+#    portforward: true
+#    core: sdohplace-core-test
+#    config:
+#      dir: "solr/conf"
+#  sdohplace_development_solr:
+#    type: solr:custom
+#    overrides:
+#      image: pulibrary/ci-solr:8.4-v1.0.0
+#      command: server/scripts/lando-start.sh
+#    portforward: true
+#    core: sdohplace-core-dev
+#    config:
+#      dir: "solr/conf"
+## PostgreSQL - Uncomment this section for lando to start a postgres instance
+#  sdohplace_database:
+#    type: postgres:13
+#    portforward: true
+## Proxy - ? (unclear if this is necessary in development....)
+#proxy:
+#  sdohplace_test_solr:
+#    - sdohplace.test.solr.lndo.site:8983
+#  sdohplace_development_solr:
+#    - sdohplace.dev.solr.lndo.site:8983
